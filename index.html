@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Dr.read</title>
+  <script src="./game/data/levels.js"></script>
+  <script src="./game/character.js"></script>
+  <script src="./game/hero.js"></script>
+  <script src="./game/board.js"></script>
+
+  <script src="./game/state.js"></script>
+  <script src="./game/initialise.js"></script>
+
+  <script src="./draw.js"></script>
+  <style>
+    .content {
+      width: 1024px;
+      margin: 0 auto;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, auto);
+      border: 1px solid black;
+    }
+    .tile {
+      width: 64px;
+      height: 64px;
+      border: 1px solid black;
+      background: #aff;
+    }
+  </style>
+  <link rel="stylesheet" href="./game/game.css">
+</head>
+<body>
+  <div class="content">
+    <div id="grid" class="grid">
+    </div>
+  </div>
+
+  <script>
+    Initialise.start();
+  </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+.empty {
+  background-color: lightgray;
+}
+
+.hero {
+  background-color: orange;
+}
+
+.obstacle {
+  background-color: black;
+}
+
+.objective {
+  background-color: greenyellow;
+}
+
+.monster {
+  background-color: cyan;
+}

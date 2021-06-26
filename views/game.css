@@ -1,20 +1,29 @@
 .hero .up {
   position: relative;
-  top: -100px;
-  left: 20px;
+  top: -99px;
+  left: 22px;
 }
 .hero .down {
   position: relative;
-  top: 8px;
-  left: 0;
+  top: 4px;
+  left: 2px;
+}
+.hero .down img {
+  transform: rotate(180deg);
 }
 .hero .left {
   position: relative;
-  top: -50px;
-  left: -75px;
+  top: -48px;
+  left: -69px;
+}
+.hero .left img {
+  transform: rotate(-90deg);
 }
 .hero .right {
   position: relative;
-  top: -70px;
-  left: 75px;
+  top: -69px;
+  left: 72px;
+}
+.hero .right img {
+  transform: rotate(90deg);
 }

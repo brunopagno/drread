@@ -1,3 +1,23 @@
+const hero_moveUpAction = () => {
+  State.hero.moveUp();
+  Draw.updateAndDraw();
+};
+
+const hero_moveDownAction = () => {
+  State.hero.moveDown();
+  Draw.updateAndDraw();
+};
+
+const hero_moveLeftAction = () => {
+  State.hero.moveLeft();
+  Draw.updateAndDraw();
+};
+
+const hero_moveRightAction = () => {
+  State.hero.moveRight();
+  Draw.updateAndDraw();
+};
+
 const heroHtmlElement = (function () {
   const heroHtmlElement = document.createElement("div");
   heroHtmlElement.classList.add("tile");
@@ -10,39 +30,52 @@ const heroHtmlElement = (function () {
 
   const moveUp = document.createElement("button");
   moveUp.classList.add("up");
-  moveUp.innerText = "W";
+  let arrow = document.createElement("img");
+  arrow.setAttribute("src", "./images/arrow.png");
+  moveUp.appendChild(arrow);
   heroHtmlElement.appendChild(moveUp);
-  moveUp.onclick = () => {
-    State.hero.moveUp();
-    Draw.updateAndDraw();
-  };
+  moveUp.onclick = hero_moveUpAction;
 
   const moveDown = document.createElement("button");
   moveDown.classList.add("down");
-  moveDown.innerText = "S";
+  arrow = document.createElement("img");
+  arrow.setAttribute("src", "./images/arrow.png");
+  moveDown.appendChild(arrow);
   heroHtmlElement.appendChild(moveDown);
-  moveDown.onclick = () => {
-    State.hero.moveDown();
-    Draw.updateAndDraw();
-  };
+  moveDown.onclick = hero_moveDownAction;
 
   const moveLeft = document.createElement("button");
   moveLeft.classList.add("left");
-  moveLeft.innerText = "A";
+  arrow = document.createElement("img");
+  arrow.setAttribute("src", "./images/arrow.png");
+  moveLeft.appendChild(arrow);
   heroHtmlElement.appendChild(moveLeft);
-  moveLeft.onclick = () => {
-    State.hero.moveLeft();
-    Draw.updateAndDraw();
-  };
+  moveLeft.onclick = hero_moveLeftAction;
 
   const moveRight = document.createElement("button");
   moveRight.classList.add("right");
-  moveRight.innerText = "D";
+  arrow = document.createElement("img");
+  arrow.setAttribute("src", "./images/arrow.png");
+  moveRight.appendChild(arrow);
   heroHtmlElement.appendChild(moveRight);
-  moveRight.onclick = () => {
-    State.hero.moveRight();
-    Draw.updateAndDraw();
-  };
+  moveRight.onclick = hero_moveRightAction;
 
   return heroHtmlElement;
 })();
+
+// document.addEventListener("keydown", (event) => {
+//   switch (event.key) {
+//     case "ArrowLeft":
+//       hero_moveLeftAction();
+//       break;
+//     case "ArrowUp":
+//       hero_moveUpAction();
+//       break;
+//     case "ArrowRight":
+//       hero_moveRightAction();
+//       break;
+//     case "ArrowDown":
+//       hero_moveDownAction();
+//       break;
+//   }
+// });

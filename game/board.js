@@ -13,11 +13,11 @@ class Board {
             gridRow.push(new EmptySpace());
             break;
           case 1: // hero
-            const hero = new Hero(x, y, this);
+            const hero = new Hero(x, y, 20, new Dice(6), this);
             gridRow.push(hero);
             break;
           case 2: // monster
-            const monster = new Monster(x, y, this);
+            const monster = new Monster(x, y, 3, new Dice(4), this);
             gridRow.push(monster);
             break;
           case 3: // objective

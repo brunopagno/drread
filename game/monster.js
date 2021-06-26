@@ -1,2 +1,2 @@
-class Monster {
+class Monster extends Character {
 }

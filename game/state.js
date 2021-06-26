@@ -21,6 +21,11 @@ const State = (function () {
     }
 
     checkState() {
+      if (this._hero.isDead()) {
+        this._state = GAME_STATE.GAME_OVER;
+        return;
+      }
+
       const grid = this._board.getGrid();
       let hasObjectives = false;
       grid.forEach(row => {
@@ -32,6 +37,7 @@ const State = (function () {
       });
       if (!hasObjectives) {
         this._state = GAME_STATE.VICTORY;
+        return;
       }
     }
 

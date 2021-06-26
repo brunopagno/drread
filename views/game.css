@@ -27,3 +27,20 @@
 .hero .right img {
   transform: rotate(90deg);
 }
+
+.dice {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 64px;
+  height: 64px;
+}
+.diceanimation {
+  background: transparent url("../images/diceroll.png") 0 0 no-repeat;
+  animation: rolldie 500ms steps(3) infinite;
+}
+@keyframes rolldie {
+  100% {
+    background-position: -192px 0;
+  }
+}

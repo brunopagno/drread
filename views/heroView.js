@@ -1,20 +1,20 @@
-const hero_moveUpAction = () => {
-  State.hero.moveUp();
+const hero_moveUpAction = async () => {
+  await State.hero.moveUp();
   Draw.updateAndDraw();
 };
 
-const hero_moveDownAction = () => {
-  State.hero.moveDown();
+const hero_moveDownAction = async () => {
+  await State.hero.moveDown();
   Draw.updateAndDraw();
 };
 
-const hero_moveLeftAction = () => {
-  State.hero.moveLeft();
+const hero_moveLeftAction = async () => {
+  await State.hero.moveLeft();
   Draw.updateAndDraw();
 };
 
-const hero_moveRightAction = () => {
-  State.hero.moveRight();
+const hero_moveRightAction = async () => {
+  await State.hero.moveRight();
   Draw.updateAndDraw();
 };
 

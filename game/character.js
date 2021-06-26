@@ -21,20 +21,20 @@ class Character {
     this._y = value;
   }
 
-  moveUp() {
-    this._executeAction(this.x, this.y - 1);
+  async moveUp() {
+    await this._executeAction(this.x, this.y - 1);
   }
 
-  moveDown() {
-    this._executeAction(this.x, this.y + 1);
+  async moveDown() {
+    await this._executeAction(this.x, this.y + 1);
   }
 
-  moveLeft() {
-    this._executeAction(this.x - 1, this.y);
+  async moveLeft() {
+    await this._executeAction(this.x - 1, this.y);
   }
 
-  moveRight() {
-    this._executeAction(this.x + 1, this.y);
+  async moveRight() {
+    await this._executeAction(this.x + 1, this.y);
   }
 
   hit(power) {
@@ -45,26 +45,18 @@ class Character {
     return this._life <= 0;
   }
 
-  _executeAction(x, y) {
+  async _executeAction(x, y) {
     const target = this._board.getXY(x, y);
     if (target instanceof Character) {
-      // roll rice
       const attack = this._dice.roll();
-      // show dice animation
-      // TODO: I need to do this, no idea how, tho :(
-      // wait for dice animation
-      // setTimeout(() => {
-      // cause damage on monster
-      console.log("attack target with", attack);
+
+      // gambiarra
+      await Draw.invokeDiceAnimation(attack);
+
       target.hit(attack);
-      console.log("target has now", target._life);
-      // check if monster is dead
       if (target.isDead()) {
-        console.log("target is dead");
-        // update board position to target
         this._board.updatePosition(this, x, y);
       }
-      // }, 1000);
     } else if (this.canMoveToTarget(target)) {
       this._board.updatePosition(this, x, y);
     }

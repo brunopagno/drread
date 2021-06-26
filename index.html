@@ -21,6 +21,7 @@
     <script src="./views/monsterView.js"></script>
     <script src="./views/objectiveView.js"></script>
     <script src="./views/obstacleView.js"></script>
+    <script src="./views/diceView.js"></script>
     <script src="./views/boardView.js"></script>
     <script src="./views/victoryView.js"></script>
     <script src="./views/gameOverView.js"></script>
@@ -72,7 +73,8 @@
     <script>
       Draw.init(
         document.getElementById("grid"),
-        document.getElementById("overlay")
+        document.getElementById("overlay"),
+        document.getElementsByClassName("content")[0]
       );
       Draw.updateAndDraw();
     </script>

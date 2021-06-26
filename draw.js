@@ -4,9 +4,24 @@ const Draw = (function () {
       this.skipMonsters = true;
     }
 
-    init(htmlParentElement, overlayHtmlElement) {
+    init(htmlParentElement, overlayHtmlElement, rootHtmlElement) {
       this.htmlParentElement = htmlParentElement;
       this.overlayHtmlElement = overlayHtmlElement;
+      this.rootHtmlElement = rootHtmlElement;
+    }
+
+    // gambiarra
+    async invokeDiceAnimation(diceResult) {
+      this.overlayHtmlElement.classList.remove("hide");
+
+      const diceAnimation = createDiceAnimationHtmlElement();
+      this.rootHtmlElement.append(diceAnimation);
+      await new Promise((r) => setTimeout(r, 1000));
+      diceAnimation.remove();
+      const diceResultElement = createDiceResultHtmlElement(diceResult);
+      this.rootHtmlElement.append(diceResultElement);
+      await new Promise((r) => setTimeout(r, 2000));
+      diceResultElement.remove();
     }
 
     updateAndDraw() {
@@ -14,19 +29,19 @@ const Draw = (function () {
       if (this.skipMonsters) {
         this.skipMonsters = false;
       } else {
-        this.overlayHtmlElement.classList.remove('hide');
-        
+        this.overlayHtmlElement.classList.remove("hide");
+
         const self = this;
         function doTheThing(allMonsters, index) {
-          setTimeout(() => {
+          setTimeout(async () => {
             if (allMonsters[index]) {
-            allMonsters[index].act(State.hero);
+              await allMonsters[index].act(State.hero);
               self._executeDraw();
               doTheThing(allMonsters, index + 1);
             } else {
-              self.overlayHtmlElement.classList.add('hide');
+              self.overlayHtmlElement.classList.add("hide");
             }
-          }, 250);
+          }, 100);
         }
 
         const allMonsters = State.allMonsters;

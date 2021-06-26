@@ -1,18 +1,18 @@
 class Monster extends Character {
-  act(target) {
+  async act(target) {
     let goX = this.x - target.x;
     let goY = this.y - target.y;
     if (Math.abs(goX) > Math.abs(goY)) {
       if (goX > 0) {
-        this.moveLeft();
+        await this.moveLeft();
       } else {
-        this.moveRight();
+        await this.moveRight();
       }
     } else {
       if (goY > 0) {
-        this.moveUp();
+        await this.moveUp();
       } else {
-        this.moveDown();
+        await this.moveDown();
       }
     }
   }

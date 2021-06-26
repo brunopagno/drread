@@ -15,7 +15,7 @@ class Board {
             gridRow.push(hero);
             break;
           case 2: // monster
-            const monster = new Character();
+            const monster = new Monster();
             gridRow.push(monster);
             break;
           case 3: // objective

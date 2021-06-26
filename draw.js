@@ -43,7 +43,7 @@ const Draw = (function () {
 
           if (element instanceof Hero) {
             result = heroHtmlElement;
-          } else if (element instanceof Character) {
+          } else if (element instanceof Monster) {
             result = createMonsterHtmlElement();
           } else if (element === 3) {
             result = objectiveHtmlElement

@@ -5,12 +5,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Dr.read</title>
   <script src="./game/data/levels.js"></script>
-  <script src="./game/character.js"></script>
+  <script src="./game/monster.js"></script>
   <script src="./game/hero.js"></script>
   <script src="./game/board.js"></script>
 
   <script src="./game/state.js"></script>
-  <script src="./game/initialise.js"></script>
 
   <script src="./draw.js"></script>
   <style>
@@ -39,7 +38,7 @@
   </div>
 
   <script>
-    Initialise.start();
+    Draw.draw(document.getElementById('grid'));
   </script>
 </body>
 </html>

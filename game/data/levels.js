@@ -1,6 +1,6 @@
 // 0: empty space
 // 1: hero start
-// 2: monster
+// 2: monster start
 // 3: objective
 // 4: obstacle
 

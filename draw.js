@@ -1,61 +1,28 @@
 const Draw = (function () {
-  function createEmptyHtmlElement() {
-    const emptyHtmlElement = document.createElement("div");
-    emptyHtmlElement.classList.add("tile");
-    emptyHtmlElement.classList.add("empty");
-    return emptyHtmlElement;
-  }
-
-  function createMonsterHtmlElement() {
-    const emptyHtmlElement = document.createElement("div");
-    emptyHtmlElement.classList.add("tile");
-    emptyHtmlElement.classList.add("monster");
-    return emptyHtmlElement;
-  }
-
-  function createObstacleHtmlElement() {
-    const obstacleHtmlElement = document.createElement("div");
-    obstacleHtmlElement.classList.add("tile");
-    obstacleHtmlElement.classList.add("obstacle");
-    return obstacleHtmlElement;
-  }
-
-  const objectiveHtmlElement = document.createElement("div");
-  objectiveHtmlElement.classList.add("tile");
-  objectiveHtmlElement.classList.add("objective");
-
-  const heroHtmlElement = document.createElement("div");
-  heroHtmlElement.classList.add("tile");
-  heroHtmlElement.classList.add("hero");
-
   class DrawClass {
-    draw(htmlParentElement) {
-      console.log(htmlParentElement);
+    init(htmlParentElement) {
+      this.htmlParentElement = htmlParentElement;
+    }
 
-      // clear all elements
-      htmlParentElement.innerHtml = "";
+    updateAndDraw() {
+      // clear screen
+      this.htmlParentElement.innerHTML = "";
 
-      // go through the board and draw the current items
-      const board = State.getBoard();
-      board.getGrid().forEach((row) => {
-        row.forEach((element) => {
-          let result = null;
+      // check current game state
+      State.checkState();
 
-          if (element instanceof Hero) {
-            result = heroHtmlElement;
-          } else if (element instanceof Monster) {
-            result = createMonsterHtmlElement();
-          } else if (element === 3) {
-            result = objectiveHtmlElement
-          } else if (element === 4) {
-            result = createObstacleHtmlElement();
-          } else {
-            result = createEmptyHtmlElement();
-          }
-
-          htmlParentElement.append(result);
-        });
-      });
+      // draw appropriate view
+      switch (State.state) {
+        case GAME_STATE.IN_GAME:
+          boardView(this.htmlParentElement);
+          break;
+        case GAME_STATE.VICTORY:
+          victoryView(this.htmlParentElement);
+          break;
+        case GAME_STATE.GAME_OVER:
+          gameOverView(this.htmlParentElement);
+          break;
+      }
     }
   }
 

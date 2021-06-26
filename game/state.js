@@ -1,3 +1,9 @@
+GAME_STATE = {
+  IN_GAME: 'IN_GAME',
+  VICTORY: 'VICTORY',
+  GAME_OVER: 'GAME_OVER',
+};
+
 const State = (function () {
   function loadLevel(level) {
     return LEVEL_1;
@@ -5,20 +11,40 @@ const State = (function () {
 
   class StateClass {
     constructor() {
-      this.currentLevel = 1;
+      this._currentLevel = 1;
+      this._state = GAME_STATE.IN_GAME;
 
-      this.level = loadLevel(this.currentLevel);
-      this.board = new Board(this.level);
+      this._level = loadLevel(this._currentLevel);
+      this._board = new Board(this._level);
 
-      this.hero = this.board.getHero();
+      this._hero = this.board.getHero();
     }
 
-    getBoard() {
-      return this.board;
+    checkState() {
+      const grid = this._board.getGrid();
+      let hasObjectives = false;
+      grid.forEach(row => {
+        row.forEach(tile => {
+          if (tile instanceof Objective) {
+            hasObjectives = true;
+          }
+        })
+      });
+      if (!hasObjectives) {
+        this._state = GAME_STATE.VICTORY;
+      }
     }
 
-    getHero() {
-      this.hero;
+    get state() {
+      return this._state;
+    }
+
+    get board() {
+      return this._board;
+    }
+
+    get hero() {
+      return this._hero;
     }
   }
 

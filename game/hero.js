@@ -1,3 +1,3 @@
-class Hero {
+class Hero extends Character {
 
 }

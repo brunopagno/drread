@@ -5,12 +5,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Dr.read</title>
   <script src="./game/data/levels.js"></script>
-  <script src="./game/monster.js"></script>
+  <script src="./game/character.js"></script>
   <script src="./game/hero.js"></script>
+  <script src="./game/monster.js"></script>
+  <script src="./game/emptySpace.js"></script>
+  <script src="./game/obstacle.js"></script>
+  <script src="./game/objective.js"></script>
   <script src="./game/board.js"></script>
 
   <script src="./game/state.js"></script>
 
+  <script src="./views/boardView.js"></script>
+  <script src="./views/victoryView.js"></script>
+  <script src="./views/gameOverView.js"></script>
   <script src="./draw.js"></script>
   <style>
     .content {
@@ -34,11 +41,15 @@
 <body>
   <div class="content">
     <div id="grid" class="grid">
+      If you can see this message, something went wrong.
+      <br>
+      Can you please try reloading?
     </div>
   </div>
 
   <script>
-    Draw.draw(document.getElementById('grid'));
+    Draw.init(document.getElementById('grid'))
+    Draw.updateAndDraw();
   </script>
 </body>
 </html>

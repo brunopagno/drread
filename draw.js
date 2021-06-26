@@ -35,12 +35,12 @@ const Draw = (function () {
 
       // actually draw
       this._executeDraw();
-
-      // check current game state
-      State.checkState();
     }
 
     _executeDraw() {
+      // check current game state
+      State.checkState();
+
       // clear screen
       this.htmlParentElement.innerHTML = "";
 

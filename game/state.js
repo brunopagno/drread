@@ -22,6 +22,7 @@ const State = (function () {
 
     checkState() {
       if (this._hero.isDead()) {
+        console.log("the hero is in fact dead");
         this._state = GAME_STATE.GAME_OVER;
         return;
       }

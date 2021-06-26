@@ -47,7 +47,7 @@ class Character {
 
   _executeAction(x, y) {
     const target = this._board.getXY(x, y);
-    if (target instanceof Monster) {
+    if (target instanceof Character) {
       // roll rice
       const attack = this._dice.roll();
       // show dice animation
@@ -55,12 +55,12 @@ class Character {
       // wait for dice animation
       // setTimeout(() => {
       // cause damage on monster
-      console.log("attack monster with", attack);
+      console.log("attack target with", attack);
       target.hit(attack);
-      console.log("monster has now", target._life);
+      console.log("target has now", target._life);
       // check if monster is dead
       if (target.isDead()) {
-        console.log("monster is dead");
+        console.log("target is dead");
         // update board position to target
         this._board.updatePosition(this, x, y);
       }

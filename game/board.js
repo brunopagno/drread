@@ -67,7 +67,10 @@ class Board {
   }
 
   getXY(x, y) {
-    return this.grid[y][x];
+    if (this.grid[y] && this.grid[y][x]) {
+      return this.grid[y][x];
+    }
+    return null;
   }
 
   updatePosition(character, targetX, targetY) {

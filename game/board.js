@@ -53,6 +53,19 @@ class Board {
     return result;
   }
 
+  getAllMonsters() {
+    let result = [];
+    this.grid.forEach((row) => {
+      row.forEach((element) => {
+        if (element instanceof Monster) {
+          result.push(element);
+          return;
+        }
+      });
+    });
+    return result;
+  }
+
   getXY(x, y) {
     return this.grid[y][x];
   }

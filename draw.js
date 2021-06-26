@@ -1,15 +1,28 @@
 const Draw = (function () {
   class DrawClass {
+    constructor() {
+      this.skipMonsters = true;
+    }
+
     init(htmlParentElement) {
       this.htmlParentElement = htmlParentElement;
     }
 
     updateAndDraw() {
-      // clear screen
-      this.htmlParentElement.innerHTML = "";
+      // update all monsters
+      if (this.skipMonsters) {
+        this.skipMonsters = false;
+      } else {
+        State.allMonsters.forEach((monster) => {
+          monster.act();
+        });
+      }
 
       // check current game state
       State.checkState();
+
+      // clear screen
+      this.htmlParentElement.innerHTML = "";
 
       // draw appropriate view
       switch (State.state) {

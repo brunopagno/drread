@@ -52,6 +52,10 @@ const State = (function () {
     get hero() {
       return this._hero;
     }
+
+    get allMonsters() {
+      return this.board.getAllMonsters();
+    }
   }
 
   return new StateClass();

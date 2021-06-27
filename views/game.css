@@ -1,31 +1,60 @@
-.hero .up {
+.attacker {
+  background-color: cyan;
+}
+.defender {
+  background-color: red;
+}
+
+.character_health {
+  position: absolute;
+  border: 1px solid rgb(85, 85, 85);
+  background-color: rgb(15, 15, 15);
+  color: rgb(255, 210, 210);
+  right: -10px;
+  top: -10px;
+  padding: 2px;
+  z-index: 2;
+}
+
+.hero {
   position: relative;
-  top: -99px;
-  left: 22px;
+}
+.hero .up {
+  position: absolute;
+  top: -26px;
+  left: 28px;
+  z-index: 3;
 }
 .hero .down {
-  position: relative;
-  top: 4px;
-  left: 2px;
+  position: absolute;
+  top: 76px;
+  left: 28px;
+  z-index: 3;
 }
 .hero .down img {
   transform: rotate(180deg);
 }
 .hero .left {
-  position: relative;
-  top: -48px;
-  left: -69px;
+  position: absolute;
+  top: 26px;
+  left: -24px;
+  z-index: 3;
 }
 .hero .left img {
   transform: rotate(-90deg);
 }
 .hero .right {
-  position: relative;
-  top: -69px;
-  left: 72px;
+  position: absolute;
+  top: 27px;
+  left: 77px;
+  z-index: 3;
 }
 .hero .right img {
   transform: rotate(90deg);
+}
+
+.monster {
+  position: relative;
 }
 
 .dice {
@@ -34,6 +63,12 @@
   left: 50%;
   width: 64px;
   height: 64px;
+}
+.dice span {
+  position: relative;
+  top: -53px;
+  left: 23px;
+  font-size: 30px;
 }
 .diceanimation {
   background: transparent url("../images/diceroll.png") 0 0 no-repeat;

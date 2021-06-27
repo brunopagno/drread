@@ -11,8 +11,13 @@ const Draw = (function () {
     }
 
     // gambiarra
-    async invokeDiceAnimation(diceResult) {
+    async invokeDiceAnimation(diceResult, attacker, defender) {
       this.overlayHtmlElement.classList.remove("hide");
+
+      const attackerHtmlElement = document.getElementById(attacker.id);
+      attackerHtmlElement.classList.add("attacker");
+      const defenderHtmlElement = document.getElementById(defender.id);
+      defenderHtmlElement.classList.add("defender");
 
       const diceAnimation = createDiceAnimationHtmlElement();
       this.rootHtmlElement.append(diceAnimation);
@@ -22,6 +27,9 @@ const Draw = (function () {
       this.rootHtmlElement.append(diceResultElement);
       await new Promise((r) => setTimeout(r, 2000));
       diceResultElement.remove();
+
+      attackerHtmlElement.classList.remove("attacker");
+      defenderHtmlElement.classList.remove("defender");
     }
 
     updateAndDraw() {

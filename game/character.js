@@ -1,3 +1,5 @@
+let NEXT_CHARACTER_ID = 1;
+
 class Character {
   constructor(x, y, life, dice, boardReference) {
     this._x = x;
@@ -6,6 +8,9 @@ class Character {
     this._dice = dice;
 
     this._board = boardReference;
+    
+    this._id = NEXT_CHARACTER_ID;
+    NEXT_CHARACTER_ID += 1;
   }
 
   get x() {
@@ -19,6 +24,12 @@ class Character {
   }
   set y(value) {
     this._y = value;
+  }
+  get life() {
+    return this._life;
+  }
+  get id() {
+    return this._id;
   }
 
   async moveUp() {
@@ -51,7 +62,7 @@ class Character {
       const attack = this._dice.roll();
 
       // gambiarra
-      await Draw.invokeDiceAnimation(attack);
+      await Draw.invokeDiceAnimation(attack, this, target);
 
       target.hit(attack);
       if (target.isDead()) {

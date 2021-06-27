@@ -14,9 +14,9 @@ const boardView = (function () {
         let result = null;
 
         if (element instanceof Hero) {
-          result = heroHtmlElement;
+          result = getHeroHtmlElement(element);
         } else if (element instanceof Monster) {
-          result = createMonsterHtmlElement();
+          result = createMonsterHtmlElement(element);
         } else if (element instanceof Objective) {
           result = objectiveHtmlElement;
         } else if (element instanceof Obstacle) {

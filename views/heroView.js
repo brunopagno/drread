@@ -18,50 +18,61 @@ const hero_moveRightAction = async () => {
   Draw.updateAndDraw();
 };
 
-const heroHtmlElement = (function () {
-  const heroHtmlElement = document.createElement("div");
-  heroHtmlElement.classList.add("tile");
-  heroHtmlElement.classList.add("hero");
+let _heroHtmlElementInstance = null;
 
-  const heroImage = document.createElement("img");
-  heroImage.setAttribute("src", "./images/drread.png");
-  heroImage.setAttribute("alt", "Dr.read");
-  heroHtmlElement.appendChild(heroImage);
+function getHeroHtmlElement(character) {
+  if (!_heroHtmlElementInstance) {
+    const heroHtmlElement = document.createElement("div");
+    heroHtmlElement.classList.add("tile");
+    heroHtmlElement.classList.add("hero");
+    heroHtmlElement.setAttribute("id", character.id);
 
-  const moveUp = document.createElement("button");
-  moveUp.classList.add("up");
-  let arrow = document.createElement("img");
-  arrow.setAttribute("src", "./images/arrow.png");
-  moveUp.appendChild(arrow);
-  heroHtmlElement.appendChild(moveUp);
-  moveUp.onclick = hero_moveUpAction;
+    const heroHealth = document.createElement("span");
+    heroHealth.innerText = character.life;
+    heroHealth.classList.add("character_health");
+    heroHtmlElement.appendChild(heroHealth);
 
-  const moveDown = document.createElement("button");
-  moveDown.classList.add("down");
-  arrow = document.createElement("img");
-  arrow.setAttribute("src", "./images/arrow.png");
-  moveDown.appendChild(arrow);
-  heroHtmlElement.appendChild(moveDown);
-  moveDown.onclick = hero_moveDownAction;
+    const heroImage = document.createElement("img");
+    heroImage.setAttribute("src", "./images/drread.png");
+    heroImage.setAttribute("alt", "Dr.read");
+    heroHtmlElement.appendChild(heroImage);
 
-  const moveLeft = document.createElement("button");
-  moveLeft.classList.add("left");
-  arrow = document.createElement("img");
-  arrow.setAttribute("src", "./images/arrow.png");
-  moveLeft.appendChild(arrow);
-  heroHtmlElement.appendChild(moveLeft);
-  moveLeft.onclick = hero_moveLeftAction;
+    const moveUp = document.createElement("button");
+    moveUp.classList.add("up");
+    let arrow = document.createElement("img");
+    arrow.setAttribute("src", "./images/arrow.png");
+    moveUp.appendChild(arrow);
+    heroHtmlElement.appendChild(moveUp);
+    moveUp.onclick = hero_moveUpAction;
 
-  const moveRight = document.createElement("button");
-  moveRight.classList.add("right");
-  arrow = document.createElement("img");
-  arrow.setAttribute("src", "./images/arrow.png");
-  moveRight.appendChild(arrow);
-  heroHtmlElement.appendChild(moveRight);
-  moveRight.onclick = hero_moveRightAction;
+    const moveDown = document.createElement("button");
+    moveDown.classList.add("down");
+    arrow = document.createElement("img");
+    arrow.setAttribute("src", "./images/arrow.png");
+    moveDown.appendChild(arrow);
+    heroHtmlElement.appendChild(moveDown);
+    moveDown.onclick = hero_moveDownAction;
 
-  return heroHtmlElement;
-})();
+    const moveLeft = document.createElement("button");
+    moveLeft.classList.add("left");
+    arrow = document.createElement("img");
+    arrow.setAttribute("src", "./images/arrow.png");
+    moveLeft.appendChild(arrow);
+    heroHtmlElement.appendChild(moveLeft);
+    moveLeft.onclick = hero_moveLeftAction;
+
+    const moveRight = document.createElement("button");
+    moveRight.classList.add("right");
+    arrow = document.createElement("img");
+    arrow.setAttribute("src", "./images/arrow.png");
+    moveRight.appendChild(arrow);
+    heroHtmlElement.appendChild(moveRight);
+    moveRight.onclick = hero_moveRightAction;
+
+    _heroHtmlElementInstance = heroHtmlElement;
+  }
+  return _heroHtmlElementInstance;
+}
 
 // document.addEventListener("keydown", (event) => {
 //   switch (event.key) {

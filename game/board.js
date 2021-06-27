@@ -13,7 +13,7 @@ class Board {
             gridRow.push(new EmptySpace());
             break;
           case 1: // hero
-            const hero = new Hero(x, y, 20, new Dice(6), this);
+            const hero = new Hero(x, y, 12, new Dice(6), this);
             gridRow.push(hero);
             break;
           case 2: // monster

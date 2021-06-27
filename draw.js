@@ -21,14 +21,20 @@ const Draw = (function () {
       const hitAnimationElm = defenderHtmlElement.querySelector(".hit");
       hitAnimationElm.classList.remove("hide");
 
+      const diceContainer = document.createElement("div");
+      diceContainer.classList.add("dice_container");
+      this.rootHtmlElement.append(diceContainer);
+
       const diceAnimation = createDiceAnimationHtmlElement();
-      this.rootHtmlElement.append(diceAnimation);
+      diceContainer.append(diceAnimation);
       await new Promise((r) => setTimeout(r, 800));
       diceAnimation.remove();
       const diceResultElement = createDiceResultHtmlElement(diceResult);
-      this.rootHtmlElement.append(diceResultElement);
+      diceContainer.append(diceResultElement);
       await new Promise((r) => setTimeout(r, 1500));
       diceResultElement.remove();
+
+      diceContainer.remove();
 
       attackerHtmlElement.classList.remove("attacker");
       defenderHtmlElement.classList.remove("defender");

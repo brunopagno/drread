@@ -28,6 +28,16 @@ const State = (function () {
       }
 
       const grid = this._board.getGrid();
+      for (let i = 0; i < grid.length; i++) {
+        const row = grid[i];
+        for (let j = 0; j < row.length; j++) {
+          const tile = row[j];
+          if (tile instanceof Monster && tile.isDead()) {
+            row[j] = new EmptySpace();
+          }
+        }
+      }
+
       let hasObjectives = false;
       grid.forEach(row => {
         row.forEach(tile => {

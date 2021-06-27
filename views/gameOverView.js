@@ -1,7 +1,7 @@
-const gameOverView = (function() {
+const gameOverView = (function () {
   return function view(htmlParentElement) {
-    const victoryHtmlElement = document.createElement('div');
-    victoryHtmlElement.innerText = "Game over";
-    htmlParentElement.append(victoryHtmlElement);
-  }
+    const gameOverHtmlElement = document.createElement("img");
+    gameOverHtmlElement.setAttribute("src", "./images/gameover.png");
+    htmlParentElement.append(gameOverHtmlElement);
+  };
 })();

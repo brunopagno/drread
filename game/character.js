@@ -74,6 +74,10 @@ class Character {
   }
 
   canMoveToTarget(target) {
-    return target instanceof EmptySpace || target instanceof Objective;
+    if (this instanceof Monster) {
+      return target instanceof EmptySpace;
+    } else {
+      return target instanceof EmptySpace || target instanceof Objective;
+    }
   }
 }

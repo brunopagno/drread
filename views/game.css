@@ -116,7 +116,7 @@
 }
 .hit_animation {
   background: transparent url("../images/diceroll.png") 0 0 no-repeat;
-  animation: hit_keyframes 1000ms steps(3) infinite;
+  animation: hit_keyframes 1000ms steps(6);
 }
 @keyframes hit_keyframes {
   100% {

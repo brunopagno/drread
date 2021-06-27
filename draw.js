@@ -18,6 +18,8 @@ const Draw = (function () {
       attackerHtmlElement.classList.add("attacker");
       const defenderHtmlElement = document.getElementById(defender.id);
       defenderHtmlElement.classList.add("defender");
+      const hitAnimationElm = defenderHtmlElement.querySelector(".hit");
+      hitAnimationElm.classList.remove("hide");
 
       const diceAnimation = createDiceAnimationHtmlElement();
       this.rootHtmlElement.append(diceAnimation);
@@ -30,6 +32,7 @@ const Draw = (function () {
 
       attackerHtmlElement.classList.remove("attacker");
       defenderHtmlElement.classList.remove("defender");
+      hitAnimationElm.classList.add("hide");
     }
 
     updateAndDraw() {

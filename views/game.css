@@ -1,5 +1,5 @@
 .attacker {
-  background-color: cyan;
+  background-color: rgb(119, 119, 119);
 }
 .defender {
   background-color: red;
@@ -75,6 +75,23 @@
   animation: rolldie 500ms steps(3) infinite;
 }
 @keyframes rolldie {
+  100% {
+    background-position: -192px 0;
+  }
+}
+
+.hit {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 64px;
+  height: 64px;
+}
+.hit_animation {
+  background: transparent url("../images/diceroll.png") 0 0 no-repeat;
+  animation: hit_keyframes 1000ms steps(3) infinite;
+}
+@keyframes hit_keyframes {
   100% {
     background-position: -192px 0;
   }

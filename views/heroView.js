@@ -38,6 +38,12 @@ function getHeroHtmlElement(character) {
     heroImage.setAttribute("alt", "Dr.read");
     heroHtmlElement.appendChild(heroImage);
 
+    const hitAnimation = document.createElement("div");
+    hitAnimation.classList.add("hit");
+    hitAnimation.classList.add("hit_animation");
+    hitAnimation.classList.add("hide");
+    heroHtmlElement.appendChild(hitAnimation);
+
     const moveUp = document.createElement("button");
     moveUp.classList.add("up");
     let arrow = document.createElement("img");

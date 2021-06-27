@@ -29,6 +29,7 @@ function getHeroHtmlElement(character) {
 
     const heroHealth = document.createElement("span");
     heroHealth.innerText = character.life;
+    heroHealth.setAttribute("id", "hero_health");
     heroHealth.classList.add("character_health");
     heroHtmlElement.appendChild(heroHealth);
 
@@ -70,7 +71,11 @@ function getHeroHtmlElement(character) {
     moveRight.onclick = hero_moveRightAction;
 
     _heroHtmlElementInstance = heroHtmlElement;
+  } else {
+    const healthBarHtmlElement = _heroHtmlElementInstance.querySelector('#hero_health')
+    healthBarHtmlElement.innerText = character.life;
   }
+
   return _heroHtmlElementInstance;
 }
 

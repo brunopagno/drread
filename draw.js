@@ -23,11 +23,11 @@ const Draw = (function () {
 
       const diceAnimation = createDiceAnimationHtmlElement();
       this.rootHtmlElement.append(diceAnimation);
-      await new Promise((r) => setTimeout(r, 1000));
+      await new Promise((r) => setTimeout(r, 800));
       diceAnimation.remove();
       const diceResultElement = createDiceResultHtmlElement(diceResult);
       this.rootHtmlElement.append(diceResultElement);
-      await new Promise((r) => setTimeout(r, 2000));
+      await new Promise((r) => setTimeout(r, 1500));
       diceResultElement.remove();
 
       attackerHtmlElement.classList.remove("attacker");

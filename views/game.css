@@ -109,17 +109,17 @@
 
 .hit {
   position: absolute;
-  top: 5px;
+  top: -5px;
   left: 5px;
-  width: 64px;
-  height: 64px;
+  width: 72px;
+  height: 87px;
 }
 .hit_animation {
-  background: transparent url("../images/diceroll.png") 0 0 no-repeat;
-  animation: hit_keyframes 1000ms steps(6);
+  background: transparent url("../images/attack.png") 0 0 no-repeat;
+  animation: hit_keyframes 1000ms steps(6) infinite;
 }
 @keyframes hit_keyframes {
   100% {
-    background-position: -192px 0;
+    background-position: -432px 0;
   }
 }
